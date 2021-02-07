@@ -12,6 +12,7 @@ document.querySelector("#input-food-name").addEventListener("keypress", event =>
 getEvents = () => {
     const inputFoodName = document.getElementById("input-food-name").value;
     const checkInputResult = checkInput(inputFoodName);
+    document.getElementById("menu-container").innerHTML = "";
     if (checkInputResult == true) {
         let url = selectURL(inputFoodName);
         if (url !== "") {
