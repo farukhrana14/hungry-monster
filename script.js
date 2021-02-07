@@ -2,7 +2,7 @@
 document.querySelector("#input-food-name").addEventListener("keypress", event => {
     if (event.key !== "Enter") return;
     document.querySelector("#searchButton").click();
-    event.preventDefault(); // No need to `return false;`.
+    event.preventDefault(); 
 });
 
 
@@ -31,12 +31,10 @@ const getResponseData = (url) => {
         .then(data => {
             data.meals.forEach(meals => {
 
-                // let countOfMenu = meals.length;
                 let imageSource = meals.strMealThumb;
                 let menuName = meals.strMeal;
                 let menuId = meals.idMeal;
-
-                // console.log("Iteration:", countOfMenu, "Meal ID: ", menuId, "Meal Name: ", menuName, "img src: ", imageSource)
+               
                 const menuContainer = document.getElementById("menu-container");
                 const newDiv = document.createElement("div");
                 newDiv.className = "col";
@@ -104,8 +102,7 @@ const detailMenu = (input) => {
             //Menu Name and image source
             let menuNameDetail = data.strMeal
             let srcImageDetail = data.strMealThumb;
-            console.log(menuNameDetail, srcImageDetail);
-
+            
             //change menu title
             document.getElementById("selcted-menu-title").innerText = menuNameDetail;
             document.getElementById("selected-menu-img").src = srcImageDetail;
@@ -127,7 +124,7 @@ const detailMenu = (input) => {
             }
 
             document.getElementById("selected-menu").style.display = "block";
-            topFunction();
+            topFunction
         })
 }
 
