@@ -36,3 +36,20 @@ nav ul{
     list-style: none;
     margin-right: 50px;
 }
+
+
+/* modal */
+#dialog{
+    margin: 300px auto;
+    width: 700px;
+    padding: 20px;
+    border: 1px solid red;
+    background-color: tomato;
+    border-radius: 10px;
+    color: white;
+}
+.button-inline{
+    display: inline-flex;
+    float:right;
+}
+/* End of modal */
