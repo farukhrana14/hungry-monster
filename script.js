@@ -7,7 +7,7 @@ document.querySelector("#input-food-name").addEventListener("keypress", event =>
 
 
 // Function to validate input not null and string from search ==> checkInput() ==> selectURL() ==> validityResp()
-getEvents = () => {
+const getEvents = () => {
     const inputFoodName = document.getElementById("input-food-name").value;
     const checkInputResult = checkInput(inputFoodName);
     document.getElementById("menu-container").innerHTML = "";
