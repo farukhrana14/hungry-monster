@@ -78,7 +78,7 @@ h1{
 
 }
 
-#search-result-text{
+.search-result-text{
     text-align: center;
     margin-top: -10px;
     color: grey;
@@ -87,3 +87,4 @@ h1{
 #search-count{
     margin-left: 20px;
 }
+
