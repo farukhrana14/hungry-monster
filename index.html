@@ -11,8 +11,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-
 </head>
 
 <body>
@@ -31,7 +29,9 @@
                 </nav>
             </div>
         </div>
-
+        <div class="site-name">
+            <h1>Hungry Monster</h1>
+        </div>
     </header>
 
     <!-- search box -->
@@ -47,24 +47,27 @@
         </form>
     </div>
 
+
+
     <!-- Selected Menu Display -->
-    <section class = container id="selected-menu">
-    <div class="card-deck" id="my-card-deck">
-        <div class="card">
-          <img id="selected-menu-img" class="card-img-top" src="images/boxty-breakfast.png" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title" id="selcted-menu-title">Card title</h5>
-            <h6>Ingredient List</h6>
-            <ul id="ingredient-list"> 
+    <section class=container id="selected-menu">
+        <div class="card-deck" id="my-card-deck">
+            <div class="card">
+                <img id="selected-menu-img" class="card-img-top" src="images/boxty-breakfast.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" id="selcted-menu-title">Card title</h5>
+                    <h6>Ingredient List</h6>
+                    <ul id="ingredient-list">
 
-            </ul>
-            <button onclick="hideButton()"; id="hideButton" type="button" class="btn btn-success mx-2">Close</button>
-          </div>
-    </div>
-</section>
+                    </ul>
+                    <button onclick="hideButton()" ; id="hideButton" type="button"
+                        class="btn btn-success mx-2">Close</button>
+                </div>
+            </div>
+    </section>
 
 
-   <!-- Menu Display -->
+    <!-- Menu Display -->
     <section class="container">
         <div id="menu-container" class="row row-cols-1 row-cols-md-4 g-5">
 
@@ -86,15 +89,10 @@
         </div>
     </dialog>
 
-    
-
-    
-
-
-        <script src="script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

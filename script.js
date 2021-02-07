@@ -6,8 +6,6 @@ document.querySelector("#input-food-name").addEventListener("keypress", event =>
 });
 
 
-
-
 // Function to validate input not null and string from search ==> checkInput() ==> selectURL() ==> validityResp()
 getEvents = () => {
     const inputFoodName = document.getElementById("input-food-name").value;
@@ -31,7 +29,6 @@ const getResponseData = (url) => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-
             data.meals.forEach(meals => {
 
                 // let countOfMenu = meals.length;
@@ -40,9 +37,7 @@ const getResponseData = (url) => {
                 let menuId = meals.idMeal;
 
                 // console.log("Iteration:", countOfMenu, "Meal ID: ", menuId, "Meal Name: ", menuName, "img src: ", imageSource)
-
                 const menuContainer = document.getElementById("menu-container");
-
                 const newDiv = document.createElement("div");
                 newDiv.className = "col";
                 const menuHTML = `
@@ -55,11 +50,9 @@ const getResponseData = (url) => {
                 `
                 newDiv.innerHTML = menuHTML;
                 menuContainer.appendChild(newDiv);
-                // document.getElementById("input-food-name").value = "";
                 cleanBar();
             });
         })
-    // document.getElementById("input-food-name").value = "";
 }
 
 
@@ -74,7 +67,6 @@ const validityResp = (url) => {
                 errorMessage("errorTypeB")
             }
         })
-
 }
 
 
@@ -97,12 +89,11 @@ const checkInput = (inputFoodName) => {
         return true;
     }
     else {
-
         errorMessage("errorTypeA");
     }
 }
 
-
+//function for detail menu with ingredients
 const detailMenu = (input) => {
     let menuId = input;
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
@@ -114,7 +105,7 @@ const detailMenu = (input) => {
             let menuNameDetail = data.strMeal
             let srcImageDetail = data.strMealThumb;
             console.log(menuNameDetail, srcImageDetail);
-            
+
             //change menu title
             document.getElementById("selcted-menu-title").innerText = menuNameDetail;
             document.getElementById("selected-menu-img").src = srcImageDetail;
@@ -122,33 +113,21 @@ const detailMenu = (input) => {
             //ingredients list
             const ingreDients = [];
             for (let i = 1; i <= 20; i++) {
-                let eachIngredient = data[`strIngredient${i}`]; 
-                if (eachIngredient !==null && eachIngredient !== ""){
+                let eachIngredient = data[`strIngredient${i}`];
+                if (eachIngredient !== null && eachIngredient !== "") {
                     ingreDients.push(eachIngredient);
                 }
-                              
-            } 
+            }
             const ul = document.getElementById("ingredient-list");
             for (let i = 0; i < ingreDients.length; i++) {
                 const ingredient = ingreDients[i];
                 const li = document.createElement('li');
                 li.innerText = ingredient;
                 ul.appendChild(li);
-                
             }
-            
+
             document.getElementById("selected-menu").style.display = "block";
-            // console.log(ingreDients); 
-
-
-
-
-
-
-
-
-
-
+            topFunction();
         })
 }
 
@@ -169,8 +148,13 @@ const cleanBar = () => {
     document.getElementById("input-food-name").value = "";
 }
 
-
-
+//Function to hide selected menu by button
 const hideButton = () => {
     document.getElementById("selected-menu").style.display = "none";
 }
+
+//go to top of page
+const topFunction = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
