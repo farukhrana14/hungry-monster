@@ -54,10 +54,11 @@ const getResponseData = (url) => {
                 `
                 newDiv.innerHTML = menuHTML;
                 menuContainer.appendChild(newDiv);
-                document.getElementById("input-food-name").value = "";
+                // document.getElementById("input-food-name").value = "";
+                cleanBar();
             });
         })
-    document.getElementById("input-food-name").value = "";
+    // document.getElementById("input-food-name").value = "";
 }
 
 
@@ -110,4 +111,9 @@ const errorMessage = (errorType) => {
         document.getElementById("errorMessage").innerText = "Sorry, no match found for your search name, please try with another name."
         window.dialog.showModal();
     }
+}
+
+//function to clean  the search bar
+const cleanBar = () => {
+    document.getElementById("input-food-name").value = "";
 }
