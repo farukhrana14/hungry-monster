@@ -48,8 +48,17 @@ nav ul{
     border-radius: 10px;
     color: white;
 }
+
 .button-inline{
     display: inline-flex;
     float:right;
 }
 /* End of modal */
+
+
+
+#selected-menu{
+    display:none;
+    width: 500px;
+    margin-bottom: 50px;
+}

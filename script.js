@@ -33,22 +33,22 @@ const getResponseData = (url) => {
 
             data.meals.forEach(meals => {
 
-                let countOfMenu = meals.length;
+                // let countOfMenu = meals.length;
                 let imageSource = meals.strMealThumb;
                 let menuName = meals.strMeal;
                 let menuId = meals.idMeal;
 
-                console.log("Iteration:", countOfMenu, "Meal ID: ", menuId, "Meal Name: ", menuName, "img src: ", imageSource)
+                // console.log("Iteration:", countOfMenu, "Meal ID: ", menuId, "Meal Name: ", menuName, "img src: ", imageSource)
 
                 const menuContainer = document.getElementById("menu-container");
 
                 const newDiv = document.createElement("div");
                 newDiv.className = "col";
                 const menuHTML = `
-                    <div class="card">
+                    <div onclick="detailMenu(${menuId})"; style="cursor: pointer;" class="card">
                         <img src="${imageSource}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">${menuName}</h5>
+                            <h5 style="cursor: pointer;" class="card-title">  ${menuName}</h5>
                         </div>
                     </div> 
                 `
@@ -102,6 +102,56 @@ const checkInput = (inputFoodName) => {
 }
 
 
+const detailMenu = (input) => {
+    let menuId = input;
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            data = data.meals[0];
+            //Menu Name and image source
+            let menuNameDetail = data.strMeal
+            let srcImageDetail = data.strMealThumb;
+            console.log(menuNameDetail, srcImageDetail);
+            
+            //change menu title
+            document.getElementById("selcted-menu-title").innerText = menuNameDetail;
+            document.getElementById("selected-menu-img").src = srcImageDetail;
+
+            //ingredients list
+            const ingreDients = [];
+            for (let i = 1; i <= 20; i++) {
+                let eachIngredient = data[`strIngredient${i}`]; 
+                if (eachIngredient !==null && eachIngredient !== ""){
+                    ingreDients.push(eachIngredient);
+                }
+                              
+            } 
+            const ul = document.getElementById("ingredient-list");
+            for (let i = 0; i < ingreDients.length; i++) {
+                const ingredient = ingreDients[i];
+                const li = document.createElement('li');
+                li.innerText = ingredient;
+                ul.appendChild(li);
+                
+            }
+            
+            document.getElementById("selected-menu").style.display = "block";
+            // console.log(ingreDients); 
+
+
+
+
+
+
+
+
+
+
+        })
+}
+
+
 //Error message for invalid search errorType
 const errorMessage = (errorType) => {
     if (errorType == "errorTypeA") {
@@ -116,4 +166,10 @@ const errorMessage = (errorType) => {
 //function to clean  the search bar
 const cleanBar = () => {
     document.getElementById("input-food-name").value = "";
+}
+
+
+
+const hideButton = () => {
+    document.getElementById("selected-menu").style.display = "none";
 }
