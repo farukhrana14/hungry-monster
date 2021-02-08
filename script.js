@@ -39,7 +39,6 @@ const getResponseData = (url) => {
             //Total count of search results
             let searchCount = data.meals.length;
             document.getElementById("search-count").innerText = searchCount;
-
             data.meals.forEach(meals => {
                 let imageSource = meals.strMealThumb;
                 let menuName = meals.strMeal;
@@ -50,7 +49,7 @@ const getResponseData = (url) => {
                 const newDiv = document.createElement("div");
                 newDiv.className = "col";
                 const menuHTML = `
-                    <div onclick="detailMenu(${menuId})"; style="cursor: pointer;" class="card">
+                    <div onclick="detailMenu(${menuId});" style="cursor: pointer;" class="card">
                         <img src="${imageSource}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 style="cursor: pointer;" class="card-title">  ${menuName}</h5>
@@ -78,6 +77,7 @@ const checkInput = (inputFoodName) => {
 
 //function for detail menu with ingredients
 const detailMenu = (input) => {
+    const ingreDients = [];
     
     let menuId = input;
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
@@ -90,20 +90,21 @@ const detailMenu = (input) => {
             let srcImageDetail = data.strMealThumb;
 
             //change menu title
-            let ingreDients = [];
             document.getElementById("selcted-menu-title").innerText = menuNameDetail;
             document.getElementById("selected-menu-img").src = srcImageDetail;
 
-            //Push ingredients to an Array
-            // let ingreDients = [];
-            for (let i = 1; i <= 20; i++) {
+            //Push ingredients to an Array 
+                        for (let i = 1; i <= 20; i++) {
                 let eachIngredient = data[`strIngredient${i}`];
                 if (eachIngredient !== null && eachIngredient !== "") {
                     ingreDients.push(eachIngredient);
                 }
             }
+
+            //Empty exitsting ul.li, if any
             //Push ingredient to UI 
             const ul = document.getElementById("ingredient-list");
+            ul.innerHTML = '';
             ingreDients.forEach(ingreDients => {
                 const ingredient = ingreDients;
                 const li = document.createElement('li');
@@ -112,8 +113,10 @@ const detailMenu = (input) => {
             })
             
             document.getElementById("selected-menu").style.display = "block";
-            greetingsText()
+            greetingsText();
             topFunction();
+            
+            
         })
 }
 
@@ -173,3 +176,4 @@ const randomColorGreetings = () =>{
     let newGreetingsColor = colorBank[colorIndex];
     document.getElementById("greetings-text").style.color = newGreetingsColor;
 }
+

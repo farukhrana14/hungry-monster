@@ -66,7 +66,15 @@ h1{
     font-family: 'Permanent Marker', cursive;
     font-size: 60px !important;
     color: rgb(214, 15, 15);
+    display: none;
 
+}
+
+.brand-name img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
 }
 
 .text-highlight{
@@ -88,7 +96,7 @@ h1{
 
 #selected-menu img{
     width: 450px;
-    margin-left: 10px;
+    margin-left: 35px;
 }
 
 #ingredient-list{
@@ -101,12 +109,22 @@ ul {
     list-style: none;
   }
 
+#ingredient-list li::before {
+    content: "\2022";
+    color: red;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
  
 #selected-menu-area{
     border: 1px solid rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     padding: 20px 0;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:550px;
+    
 }
 
 
