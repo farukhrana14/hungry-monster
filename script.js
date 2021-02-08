@@ -58,9 +58,11 @@ const getResponseData = (url) => {
                 `
                 newDiv.innerHTML = menuHTML;
                 menuContainer.appendChild(newDiv);
-                cleanBar();
+                
             });
         })
+        document.getElementById("search-result-div").style.display = 'block';
+        cleanBar();
 }
 
 

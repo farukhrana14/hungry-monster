@@ -146,3 +146,7 @@ ul {
     margin-bottom: auto;
 }
 
+
+#search-result-div{
+    display: none;
+}
