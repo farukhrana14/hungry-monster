@@ -44,7 +44,7 @@ const getResponseData = (url) => {
                 let imageSource = meals.strMealThumb;
                 let menuName = meals.strMeal;
                 let menuId = meals.idMeal;
-
+                
 
                 const menuContainer = document.getElementById("menu-container");
                 const newDiv = document.createElement("div");
@@ -78,6 +78,7 @@ const checkInput = (inputFoodName) => {
 
 //function for detail menu with ingredients
 const detailMenu = (input) => {
+    
     let menuId = input;
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${menuId}`
     fetch(url)
@@ -89,12 +90,12 @@ const detailMenu = (input) => {
             let srcImageDetail = data.strMealThumb;
 
             //change menu title
-            
+            let ingreDients = [];
             document.getElementById("selcted-menu-title").innerText = menuNameDetail;
             document.getElementById("selected-menu-img").src = srcImageDetail;
 
             //Push ingredients to an Array
-            const ingreDients = [];
+            // let ingreDients = [];
             for (let i = 1; i <= 20; i++) {
                 let eachIngredient = data[`strIngredient${i}`];
                 if (eachIngredient !== null && eachIngredient !== "") {
@@ -109,7 +110,9 @@ const detailMenu = (input) => {
                 li.innerText = ingredient;
                 ul.appendChild(li);
             })
+            
             document.getElementById("selected-menu").style.display = "block";
+            greetingsText()
             topFunction();
         })
 }
@@ -141,4 +144,32 @@ const topFunction = () => {
     var elmnt = document.getElementById("selected-menu");
     elmnt.scrollIntoView();
 
+}
+
+const greetingsText = () =>{
+    var randomStrings = [
+        "Wow! ",
+        "That's Great! ",
+        "That's Yummy!",
+        "Nice Choice!",
+        "Enjoy!",
+    ];
+    let wordIndex = Math.ceil((Math.random() * randomStrings.length - 1));
+    let newGreetingsText = randomStrings[wordIndex];
+    document.getElementById("greetings-text").innerText = newGreetingsText;
+    randomColorGreetings()
+}
+
+const randomColorGreetings = () =>{
+    var colorBank = [
+        "#d60f0f",
+        "#3f81eb",
+        "#0da802",
+        "#f5424b",
+        "#8169e0",
+        "#f03805",
+    ];
+    let colorIndex = Math.ceil((Math.random() * colorBank.length - 1));
+    let newGreetingsColor = colorBank[colorIndex];
+    document.getElementById("greetings-text").style.color = newGreetingsColor;
 }
