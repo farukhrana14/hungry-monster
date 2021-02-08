@@ -140,13 +140,13 @@ ul {
 }
 
 
+#search-result-div{
+    display: none;
+}
+
 /* Searched Menu Display */
 #menu-container{
     margin-top: 15px;
     margin-bottom: auto;
 }
 
-
-#search-result-div{
-    display: none;
-}
