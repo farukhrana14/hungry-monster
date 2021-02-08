@@ -35,10 +35,11 @@
     </header>
 
     <!-- search box -->
-    <div id = "search-area" class="container">
+    <div id="search-area" class="container">
         <form id="div-form" class="col-md-6 m-auto py-5">
             <div id="search-result-div">
-                <P class="search-result-text">Search for Menu & Recipies by name or letter/s of favorite & Yummy Food.</P>
+                <P class="search-result-text">Search for Menu & Recipies by name or letter/s of favorite & Yummy Food.
+                </P>
             </div>
             <div class="input-group mb-3">
                 <input id="input-food-name" type="text" class="rounded form-control" placeholder="Search for Menu ...">
@@ -48,10 +49,10 @@
                 </div>
             </div>
             <div id="search-result-div">
-                <P class="search-result-text">Total menu found: <span id= "search-count" >000</span></P>
+                <P class="search-result-text">Total menu found: <span id="search-count">000</span></P>
             </div>
         </form>
-       
+
 
     </div>
 
@@ -61,15 +62,20 @@
     <section class=container id="selected-menu">
         <div class="card-deck" id="my-card-deck">
             <div class="card">
-                <img id="selected-menu-img" class="card-img-top" src="images/boxty-breakfast.png" alt="Card image cap">
+                <img id="selected-menu-img" class="card-img" src="images/boxty-breakfast.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" id="selcted-menu-title">Card title</h5>
-                    <h6>Ingredient List</h6>
-                    <ul id="ingredient-list">
+                    <div class="card-body">
 
-                    </ul>
-                    <button onclick="hideButton()" ; id="hideButton" type="button"
-                        class="btn btn-success mx-2">Close</button>
+                        <h6>Ingredient List</h6>
+                        <ul id="ingredient-list">
+
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="hideButton()" ; id="hideButton" type="button"
+                            class="btn btn-success mx-2">Close</button>
+                    </div>
                 </div>
             </div>
     </section>
@@ -92,7 +98,8 @@
             </div>
             <br>
             <div class="button-inline">
-                <button onclick="window.dialog.close(); cleanBar(); location.reload();" class="btn btn-outline-danger">Close</button>
+                <button onclick="window.dialog.close(); cleanBar(); location.reload();"
+                    class="btn btn-outline-danger">Close</button>
             </div>
         </div>
     </dialog>

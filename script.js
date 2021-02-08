@@ -89,6 +89,7 @@ const detailMenu = (input) => {
             let srcImageDetail = data.strMealThumb;
 
             //change menu title
+            
             document.getElementById("selcted-menu-title").innerText = menuNameDetail;
             document.getElementById("selected-menu-img").src = srcImageDetail;
 
