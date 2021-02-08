@@ -126,4 +126,5 @@ ul {
 /* Searched Menu Display */
 #menu-container{
     margin-top: 15px;
+    margin-bottom: auto;
 }
