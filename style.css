@@ -89,12 +89,26 @@ h1{
     width: 450px;
 }
 
-ul{
+#ingredient-list{
     columns: 4;
     -webkit-columns: 4;
     -moz-columns: 4;
 }
 
+ul {
+    list-style: none;
+  }
+
+  
+#ingredient-list li::before {
+    content: "\2764";
+    color: red;
+    font-weight: bold;
+    
+    display: inline-block; 
+    width: 1.55em;
+    margin-left: -1em;
+  } 
 
 
 /* Search count and Search Result Text */
