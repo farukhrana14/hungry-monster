@@ -39,6 +39,7 @@ const getResponseData = (url) => {
             //Total count of search results
             let searchCount = data.meals.length;
             document.getElementById("search-count").innerText = searchCount;
+            document.getElementById("search-result-div").style.display = 'block';
             data.meals.forEach(meals => {
                 let imageSource = meals.strMealThumb;
                 let menuName = meals.strMeal;
@@ -61,7 +62,6 @@ const getResponseData = (url) => {
                 
             });
         })
-        document.getElementById("search-result-div").style.display = 'block';
         cleanBar();
 }
 
