@@ -136,8 +136,9 @@ const hideButton = () => {
     document.getElementById("selected-menu").style.display = "none";
 }
 
-//go to top of page
+//go to top of page by div id
 const topFunction = () => {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    var elmnt = document.getElementById("selected-menu");
+    elmnt.scrollIntoView();
+
 }
