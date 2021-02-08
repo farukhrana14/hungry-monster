@@ -86,7 +86,13 @@ h1{
 }
 
 #selected-menu img{
-    width: 300px;
+    width: 450px;
+}
+
+ul{
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
 }
 
 
